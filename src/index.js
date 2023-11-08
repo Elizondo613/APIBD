@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 });
 
 //mongodb conexion
-//pass = sbZPdVlkBM3GtwaT
-mongoose.connect("mongodb+srv://josejavierem:sbZPdVlkBM3GtwaT@cluster0.xzdmfmn.mongodb.net/?retryWrites=true&w=majority");
+//pass = QcDLajPjyYQWAvMY
+mongoose.connect("mongodb+srv://josejavierem:QcDLajPjyYQWAvMY@cluster0.eb4pats.mongodb.net/?retryWrites=true&w=majority");
 
 app.listen(port, () => console.log('server listening on port', port));

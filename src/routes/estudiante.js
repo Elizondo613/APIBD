@@ -89,6 +89,7 @@ router.post('/comentarios/:_id', async function(req, res){
     //Busca al estudiante para asignarle el comentario
     const estudiante = await estudianteSchema.findById(req.params)
 
+
     //Asigna al estudiante como propietario
     comentarioNuevo.student = estudiante
 

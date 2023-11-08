@@ -13,11 +13,7 @@ const articuloSchema = new Schema({
     fecha: {
         type: Date,
         default: Date.now
-    },
-    stud: [{
-        type: Schema.Types.ObjectId,
-        ref: 'estudiante'
-    }]
+    }
 });
 
 module.exports = mongoose.model('articulo', articuloSchema);

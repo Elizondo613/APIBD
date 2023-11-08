@@ -9,11 +9,7 @@ const comentarioSchema = new Schema({
     fecha: {
         type: Date,
         default: Date.now
-    },
-    student: [{
-        type: Schema.Types.ObjectId,
-        ref: 'estudiante'
-    }]
+    }
 });
 
 module.exports = mongoose.model('comentario', comentarioSchema);
