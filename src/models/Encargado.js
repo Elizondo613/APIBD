@@ -1,19 +1,18 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const articuloSchema = new Schema({
-    titulo: {
+const encargadoSchema = new Schema({
+    nombre: {
         type: String,
         required: true
     },
-    articulo: {
+    direccion: {
         type: String,
         required: true
     },
-    fecha: {
-        type: Date,
-        default: Date.now
+    dpi: {
+        type: String
     }
 });
 
-module.exports = mongoose.model('articulo', articuloSchema);
+module.exports = mongoose.model('encargado', encargadoSchema);
