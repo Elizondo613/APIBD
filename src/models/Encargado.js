@@ -12,7 +12,11 @@ const encargadoSchema = new Schema({
     },
     dpi: {
         type: String
-    }
+    },
+    proyecto: [{
+        type: Schema.Types.ObjectId,
+        ref: "Proyecto"
+    }]
 });
 
 module.exports = mongoose.model('encargado', encargadoSchema);

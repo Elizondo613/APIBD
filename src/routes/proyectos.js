@@ -24,6 +24,15 @@ router.get('/proyecto', (req, res) => {
     .catch((error) => res.json({ message: error }));
 });
 
+//Obtener un proyecto por id
+router.get('/proyecto/:id', (req, res) => {
+    const { id } = req.params;
+    proyectoSchema
+    .findById(id)
+    .then((data) => res.json(data))
+    .catch((error) => res.json({ message: error }));
+});
+
 //Actualizar un proyecto
 router.put('/proyecto/:id', (req, res) => {
     const { id } = req.params;
@@ -83,7 +92,7 @@ router.post('/familia/:_id', async function(req, res){
     familiaNuevo.proyecto = proyecto
 
     //Guarda la familia
-    await encargadoNuevo.save()
+    await familiaNuevo.save()
 
     //Asigna a la familia dentro del array
     proyecto.familia.push(familiaNuevo)

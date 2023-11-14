@@ -9,7 +9,11 @@ const familiaSchema = new Schema({
     ingreso: {
         type: Number,
         required: true
-    }
+    },
+    proyecto: [{
+        type: Schema.Types.ObjectId,
+        ref: "Proyecto"
+    }]
 });
 
 module.exports = mongoose.model('familia', familiaSchema);
