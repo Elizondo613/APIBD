@@ -16,17 +16,11 @@ const proyectoSchema = new Schema({
     },
     presupuesto: {
         type: Number,
+    
         required: true
     },
-    encargado: [{
-        type: Schema.Types.ObjectId,
-        ref: 'encargado'
-    }],
-
-    familia:[{
-        type: Schema.Types.ObjectId,
-        ref: 'familia'
-    }]
+    encargado: String,
+    familia: String
 });
 
 module.exports = mongoose.model('proyecto', proyectoSchema);

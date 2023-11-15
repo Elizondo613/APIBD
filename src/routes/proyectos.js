@@ -1,7 +1,6 @@
 const express = require("express");
 const encargadoSchema = require("../models/Encargado");
 const familiaSchema = require("../models/Familia");
-const integranteSchema = require("../models/Integrante");
 const proyectoSchema = require("../models/Proyecto");
 
 const router = express.Router();
@@ -16,9 +15,35 @@ router.post('/proyecto', (req, res) => {
     .catch((error) => res.json({ message: error }));
 });
 
+//Crear familia por id
+router.post('/familia/:_id', (req, res) => {
+    const familia = familiaSchema(req.body);
+    familia
+    .save()
+    .then((data) => res.json(data))
+    .catch((error) => res.json({ message: error }));
+});
+
+//Crear familia
+router.post('/familia', (req, res) => {
+    const familia = familiaSchema(req.body);
+    familia
+    .save()
+    .then((data) => res.json(data))
+    .catch((error) => res.json({ message: error }));
+});
+
 //Obtener todos los proyectos
 router.get('/proyecto', (req, res) => {
     proyectoSchema
+    .find()
+    .then((data) => res.json(data))
+    .catch((error) => res.json({ message: error }));
+});
+
+//Obtener todas las familias
+router.get('/familia', (req, res) => {
+    familiaSchema
     .find()
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
@@ -67,6 +92,7 @@ router.post('/encargado/:_id', async function(req, res){
 
     //Asigna el encargado dentro del array
     proyecto.encargado.push(encargadoNuevo)
+
     
     //Guarda el proyecto con el encargado nuevo
     await proyecto.save()
@@ -82,7 +108,7 @@ router.get('/:_id/encargado', async function(req, res){
 })
 
 //FAMILIA-------------------------------------------------------------------------------------------
-router.post('/familia/:_id', async function(req, res){
+/*router.post('/familia/:_id', async function(req, res){
     //Crea la familia para el proyecto
     const familiaNuevo = new familiaSchema(req.body)
 
@@ -102,7 +128,7 @@ router.post('/familia/:_id', async function(req, res){
 
     //Envia la familia con el proyecto
     res.send(familiaNuevo)
-})
+})*/
 
 router.get('/:_id/familia', async function(req, res){
     //busca el proyecto con la familia

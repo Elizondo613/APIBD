@@ -9,7 +9,8 @@ const familiaSchema = new Schema({
     ingreso: {
         type: Number,
         required: true
-    }
+    },
+    integrante: String
 });
 
 module.exports = mongoose.model('familia', familiaSchema);
