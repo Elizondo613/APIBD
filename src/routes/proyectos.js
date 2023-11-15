@@ -36,9 +36,9 @@ router.get('/proyecto/:id', (req, res) => {
 //Actualizar un proyecto
 router.put('/proyecto/:id', (req, res) => {
     const { id } = req.params;
-    const { nombre, fechaInicio, fechaFin, presupuesto, finalizado } = req.body;
-    estudianteSchema
-    .updateOne({ _id: id}, { $set: { nombre, fechaInicio, fechaFin, presupuesto, finalizado } })
+    const { nombre, fechaInicio, fechaFin, presupuesto } = req.body;
+    proyectoSchema
+    .updateOne({ _id: id}, { $set: { nombre, fechaInicio, fechaFin, presupuesto } })
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
